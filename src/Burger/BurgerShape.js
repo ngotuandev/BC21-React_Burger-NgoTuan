@@ -16,8 +16,9 @@ class BurgerShape extends Component {
   render() {
     return (
       <div style={{ width: "60%" }}>
-        <h3 className="mb-4">Burger</h3>
+        <h3 className="mb-4">Cửa hàng burger Cybersoft</h3>
         <div className="breadTop"></div>
+        <p>Chọn thức ăn</p>
         {this.renderBreadMid()}
         <div className="breadBottom"></div>
       </div>

@@ -42,7 +42,7 @@ class MenuBurgerTopping extends Component {
   render() {
     return (
       <div>
-        <h3 className="mb-5">Menu Burger</h3>
+        <h3 className="text-left">Chọn thức ăn</h3>
         <table className="table">
           <thead>
             <tr>
