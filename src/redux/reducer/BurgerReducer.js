@@ -1,4 +1,5 @@
-import { INCREASE_DECREASE } from "../constants/typeBurger";
+import { INCREASE_DECREASE, PAYMENT } from "../constants/typeBurger";
+import swal from "sweetalert";
 
 const initialState = {
   burger: { salad: 1, cheese: 1, beef: 1 },
@@ -35,6 +36,13 @@ export const BurgerReducer = (
       }
       state.burger = burgerNew;
       state.total = totalNew;
+      return { ...state };
+    }
+    case PAYMENT: {
+      swal("Thanh toán thành công", "Chúc bạn ăn ngon miệng!", "success");
+      state.burger = { salad: 1, cheese: 1, beef: 1 };
+      state.total = 45;
+
       return { ...state };
     }
 

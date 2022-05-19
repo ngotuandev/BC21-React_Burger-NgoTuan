@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { INCREASE_DECREASE } from "../redux/constants/typeBurger";
 import { increase, decrease } from "../redux/constants/numberBurger";
+import { changeAmount, handlePayment } from "../redux/actions/burgerAction";
 
 class MenuBurgerTopping extends Component {
   renderMenu = () => {
@@ -60,7 +61,13 @@ class MenuBurgerTopping extends Component {
             </tr>
           </tfoot>
         </table>
-        <button className="btn btn-primary" style={{ marginLeft: "170px" }}>
+        <button
+          className="btn btn-primary"
+          style={{ marginLeft: "170px" }}
+          onClick={() => {
+            this.props.payment();
+          }}
+        >
           Thanh Toán
         </button>
       </div>
@@ -79,11 +86,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
   return {
     inDecreaseAmount: (propsMenu, value) => {
-      dispatch({
-        type: INCREASE_DECREASE,
-        payload: propsMenu,
-        value,
-      });
+      dispatch(changeAmount(propsMenu, value));
+    },
+    payment: () => {
+      dispatch(handlePayment());
     },
   };
 };
